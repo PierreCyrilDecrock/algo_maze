@@ -15,7 +15,7 @@
     var done = false;
     var mainRow;
     var mainCol;
-    var fov = maze.width;
+    var fov;
     var killRecursive;
     var chemin;
 
@@ -29,6 +29,7 @@
         countStep = 0;
         mainRow = 0;
         mainCol = 0;
+        fov = maze.width;
 
         for (var i = 1;i<maze.cells.length+1; i++) {
             visited[i] = false;
@@ -89,6 +90,7 @@
             fov = maze.height;
         if(30*fov > 10000)
             fov = 333;
+
         camera.position.set( 0, 30*fov, 0 );
         controls = new THREE.OrbitControls( camera );
         controls.target.set( 0, 0, 0 );
