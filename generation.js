@@ -21,7 +21,7 @@ var Mazes = (function() {
             this.cells[i] = new Cell();
         }
 
-        // Le paramètre "at" permet de récupérer une cellule plus facilement en fonction des lignes et colonnes du labyrinthe
+        // Le paramètre "at" permet de récupérer une cellule plus facilement en fonction des lignes et colonnes du labyrinthe (finalement peu utilisé)
         this.at = function(row, column) {
             return this.cells[row * this.width + column];
         }
@@ -83,7 +83,7 @@ var Mazes = (function() {
 
         }
 
-        // Conditin spécial pour la dernière ligne
+        // Condition spécial pour la dernière ligne, il faut séparé les chemins qui se rejoignent pour ne pas créer de boucle
         for (var c = 0; c < width; c++) {
             if (c != width-1 && c+1 != R[c] && (c == R[c] || Math.random() < 0.5)) {
                 R[L[c+1]] = R[c];
