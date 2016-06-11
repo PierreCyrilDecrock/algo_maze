@@ -235,6 +235,7 @@
         if (row == maze.height-1 && col == maze.width-1) {
             console.log("fini");
             done = true;
+            chemin.push([row,col]);
             return;
         }
 
