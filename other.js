@@ -61,6 +61,11 @@
 
     }
 
+    function reload(){
+        maze = Mazes.create(20,30);
+        start(maze);
+    }
+
     function init(maze) {
 
         scene = new THREE.Scene();
