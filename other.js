@@ -87,6 +87,8 @@
         // Adapte la caméra en fonction de la taille du labyrinthe
         if(maze.width - maze.height < 0)
             fov = maze.height;
+        if(30*fov > 10000)
+            fov = 333;
         camera.position.set( 0, 30*fov, 0 );
         controls = new THREE.OrbitControls( camera );
         controls.target.set( 0, 0, 0 );
