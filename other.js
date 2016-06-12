@@ -4,7 +4,7 @@
 
     /////////////////
 
-    var maze = Mazes.create(20,30);
+    var maze = Mazes.create(20,20);
 
     /////////////////
 
@@ -18,6 +18,7 @@
     var fov;
     var killRecursive;
     var chemin;
+    var upload = null;
 
     start(maze);
 
@@ -63,8 +64,12 @@
     }
 
     function reload(){
-        maze = Mazes.create(20,30);
+        maze = Mazes.create(20,20);
         start(maze);
+    }
+
+    function uploaded(){
+        start(upload);
     }
 
     function init(maze) {
@@ -322,7 +327,7 @@
     // Import JSON //
     //-------------//
 
-    JsonObj = null;
+
 
     function uploadJSON(evt) {
         var files = evt.target.files;
@@ -331,13 +336,13 @@
 
         reader.onload = (function(theFile) {
             return function(e) {
-                JsonObj = JSON.parse(e.target.result);
+                upload = JSON.parse(e.target.result);
             };
         })(f);
 
         reader.readAsText(f);
         scene.clear();
-        setTimeout(function(){ start(JsonObj); }, 3000);
+        setTimeout(function(){ start(upload); }, 3000);
 
     }
 
